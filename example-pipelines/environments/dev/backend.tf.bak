@@ -15,7 +15,7 @@
 
 terraform {
   backend "gcs" {
-    bucket = "anz-edia-edia-ml-poc-tfstate"
-    prefix = "env/prod"
+    bucket = "PROJECT_ID-tfstate"
+    prefix = "env/dev"
   }
 }
