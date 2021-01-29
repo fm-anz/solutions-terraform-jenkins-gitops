@@ -1,0 +1,5 @@
+steps:
+# This step runs the unit tests on the app
+- name: 'gcr.io/${PROJECT_ID}/terraform'
+  args: ['taint', 'google_compute_instance.vm_0001']
+  dir: 'example-pipelines/environments/${_TARGET_ENV}/'
