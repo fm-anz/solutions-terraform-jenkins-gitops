@@ -1,0 +1,13 @@
+steps:
+# This step runs the unit tests on the app
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args:
+  - -c
+  - 'cd example-pipelines/environments/${TARGET_ENV}/'
+- name: 'gcr.io/${PROJECT_ID}/terraform'
+  args: ['init']
+- name: 'gcr.io/${PROJECT_ID}/terraform'
+  args: ['plan']
+- name: 'gcr.io/${PROJECT_ID}/terraform'
+  args: ['apply', '-auto-approve']
