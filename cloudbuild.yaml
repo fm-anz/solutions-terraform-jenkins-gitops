@@ -4,7 +4,7 @@ steps:
   entrypoint: 'bash'
   args:
   - -c
-  - 'cd example-pipelines/environments/${TARGET_ENV}/'
+  - 'cd example-pipelines/environments/${_TARGET_ENV}/'
 - name: 'gcr.io/${PROJECT_ID}/terraform'
   args: ['init']
 - name: 'gcr.io/${PROJECT_ID}/terraform'
