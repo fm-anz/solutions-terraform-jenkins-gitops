@@ -1,13 +1,8 @@
 steps:
 # This step runs the unit tests on the app
-- name: 'gcr.io/cloud-builders/gcloud'
-  entrypoint: 'bash'
-  args:
-  - -c
-  - 'cd example-pipelines/environments/${_TARGET_ENV}/'
 - name: 'gcr.io/${PROJECT_ID}/terraform'
-  args: ['init']
+  args: ['init', 'example-pipelines/environments/${_TARGET_ENV}/']
 - name: 'gcr.io/${PROJECT_ID}/terraform'
-  args: ['plan']
+  args: ['plan', 'example-pipelines/environments/${_TARGET_ENV}/']
 - name: 'gcr.io/${PROJECT_ID}/terraform'
-  args: ['apply', '-auto-approve']
+  args: ['apply', '-auto-approve', 'example-pipelines/environments/${_TARGET_ENV}/']
