@@ -1,8 +1,11 @@
 steps:
 # This step runs the unit tests on the app
 - name: 'gcr.io/${PROJECT_ID}/terraform'
-  args: ['init', 'example-pipelines/environments/${_TARGET_ENV}/']
+  args: ['init']
+  dir: 'example-pipelines/environments/${_TARGET_ENV}/'
 - name: 'gcr.io/${PROJECT_ID}/terraform'
-  args: ['plan', 'example-pipelines/environments/${_TARGET_ENV}/']
+  args: ['plan']
+  dir: 'example-pipelines/environments/${_TARGET_ENV}/'
 - name: 'gcr.io/${PROJECT_ID}/terraform'
-  args: ['apply', '-auto-approve', 'example-pipelines/environments/${_TARGET_ENV}/']
+  args: ['apply', '-auto-approve']
+  dir: 'example-pipelines/environments/${_TARGET_ENV}/'
